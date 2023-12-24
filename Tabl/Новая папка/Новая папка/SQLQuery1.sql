@@ -1,0 +1,1 @@
+﻿SELECT Surname,Name, Ill FROM Patients WHERE NameD = N'Кирилл'

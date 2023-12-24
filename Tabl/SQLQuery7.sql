@@ -1,0 +1,1 @@
+﻿INSERT INTO Patients (Number,Surname,Name,Otchestvo,Data_Rozhdeniya) VALUES ('2',N'Иванов',N'Иван',N'Иванович','1.1.2001')
