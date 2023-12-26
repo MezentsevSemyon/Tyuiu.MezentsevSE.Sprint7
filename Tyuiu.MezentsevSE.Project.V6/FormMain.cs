@@ -36,7 +36,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
         {
             try
             {
-                dataAdapter = new SqlDataAdapter("Select *, 'Delete' AS [Delete] FROM Patients", sqlConnection);
+                dataAdapter = new SqlDataAdapter("Select *, 'Delete' AS [Command] FROM Patients", sqlConnection);
 
                 sqlBuilder = new SqlCommandBuilder(dataAdapter);
 
@@ -256,7 +256,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
                             dataGridViewEdit_MSE.Rows.RemoveAt(rowIndex);
 
-                            dataSet.Tables["Users"].Rows[rowIndex].Delete();
+                            dataSet.Tables["Patients"].Rows[rowIndex].Delete();
 
                             dataAdapter.Update(dataSet,"Patients");
 
@@ -355,7 +355,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
                     dataGridViewEdit_MSE[15, lastRow] = linkCell;
 
-                    row.Cells["Delete"].Value = "Insert";
+                    row.Cells["Command"].Value = "Insert";
                 }
             }
             catch (Exception ex)
@@ -378,7 +378,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
                     dataGridViewEdit_MSE[15, rowIndex] = linkCell;
 
-                    editingRow.Cells["Delete"].Value = "Update";
+                    editingRow.Cells["Command"].Value = "Update";
                 }
             }
             catch (Exception ex)
@@ -390,7 +390,25 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
         private void dataGridViewEdit_MSE_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
+            e.Control.KeyPress -= new KeyPressEventHandler(Column_KeyPress);
 
+            if (dataGridViewEdit_MSE.CurrentCell.ColumnIndex == 5)
+            {
+                TextBox textbox = e.Control as TextBox;
+
+                if(textbox != null)
+                {
+                    textbox.KeyPress += new KeyPressEventHandler(Column_KeyPress);
+                }
+            }
+        }
+
+        private void Column_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

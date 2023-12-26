@@ -90,7 +90,10 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.dataGridViewEdit_MSE = new System.Windows.Forms.DataGridView();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonEdit_MSE = new System.Windows.Forms.ToolStripButton();
+            this.textBoxMain_MSE = new System.Windows.Forms.TextBox();
+            this.textBoxPS_MSE = new System.Windows.Forms.TextBox();
             this.tabControlMid_MSE.SuspendLayout();
+            this.tabPageMenu_MSE.SuspendLayout();
             this.tabPageInsert_MSE.SuspendLayout();
             this.groupBoxMoreInfo_MSE.SuspendLayout();
             this.groupBoxDoctor_MSE.SuspendLayout();
@@ -128,6 +131,8 @@ namespace Tyuiu.MezentsevSE.Project.V6
             // 
             // tabPageMenu_MSE
             // 
+            this.tabPageMenu_MSE.Controls.Add(this.textBoxPS_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.textBoxMain_MSE);
             this.tabPageMenu_MSE.Location = new System.Drawing.Point(4, 22);
             this.tabPageMenu_MSE.Name = "tabPageMenu_MSE";
             this.tabPageMenu_MSE.Padding = new System.Windows.Forms.Padding(3);
@@ -711,6 +716,25 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.toolStripButtonEdit_MSE.Text = "Обновить";
             this.toolStripButtonEdit_MSE.Click += new System.EventHandler(this.toolStripButtonEdit_MSE_Click);
             // 
+            // textBoxMain_MSE
+            // 
+            this.textBoxMain_MSE.Font = new System.Drawing.Font("Impact", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxMain_MSE.ForeColor = System.Drawing.Color.Orange;
+            this.textBoxMain_MSE.Location = new System.Drawing.Point(204, 6);
+            this.textBoxMain_MSE.Name = "textBoxMain_MSE";
+            this.textBoxMain_MSE.Size = new System.Drawing.Size(395, 86);
+            this.textBoxMain_MSE.TabIndex = 0;
+            this.textBoxMain_MSE.Text = "ПОЛИКЛИНИКА";
+            // 
+            // textBoxPS_MSE
+            // 
+            this.textBoxPS_MSE.Location = new System.Drawing.Point(3, 396);
+            this.textBoxPS_MSE.Name = "textBoxPS_MSE";
+            this.textBoxPS_MSE.Size = new System.Drawing.Size(568, 20);
+            this.textBoxPS_MSE.TabIndex = 1;
+            this.textBoxPS_MSE.Text = "Во вкладке \"Выборка\" поиск осуществляется по шаблону (SELECT * FROM Patients, где" +
+    " * - название колонны)";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -722,6 +746,8 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.Text = "Проект | Спринт 7 | Вариант 6 | Мезенцев С.Е.";
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.tabControlMid_MSE.ResumeLayout(false);
+            this.tabPageMenu_MSE.ResumeLayout(false);
+            this.tabPageMenu_MSE.PerformLayout();
             this.tabPageInsert_MSE.ResumeLayout(false);
             this.groupBoxMoreInfo_MSE.ResumeLayout(false);
             this.groupBoxMoreInfo_MSE.PerformLayout();
@@ -815,6 +841,8 @@ namespace Tyuiu.MezentsevSE.Project.V6
         private System.Windows.Forms.DataGridView dataGridViewEdit_MSE;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton toolStripButtonEdit_MSE;
+        private System.Windows.Forms.TextBox textBoxPS_MSE;
+        private System.Windows.Forms.TextBox textBoxMain_MSE;
     }
 }
 
