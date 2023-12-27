@@ -25,6 +25,8 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
         private SqlCommandBuilder sqlBuilder = null;
 
+        private DataTable table = null;
+
         private bool newRowAdding = false;
         public FormMain()
         {
@@ -106,13 +108,16 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
             sqlConnection.Open();
 
-            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT * FROM Patients", sqlConnection);
+            dataAdapter = new SqlDataAdapter("SELECT * FROM Patients", sqlConnection);
+
 
             DataSet database = new DataSet();
 
             dataAdapter.Fill(database, "Patients");
 
-            
+            table = database.Tables["Patients"];
+
+            cartesianChartGrapg_MSE.LegendLocation = LegendLocation.Bottom;
 
             dataGridViewFilter_MSE.DataSource = database.Tables[0];
 
@@ -230,7 +235,30 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
             List<string> birthdate = new List<string>();
 
-           
+            foreach (DataRow row in table.Rows)
+            {
+                num.Add(Convert.ToInt32(row["Name"]));
+
+                birthdate.Add(Convert.ToDateTime(row["Data_Rozhdeniya"]).ToShortDateString());
+
+            }
+
+            cartesianChartGrapg_MSE.AxisX.Clear();
+
+            cartesianChartGrapg_MSE.AxisX.Add(new Axis()
+            {
+                Title = "Дата",
+                Labels = birthdate
+
+
+            });
+            LineSeries line = new LineSeries();
+            line.Title = "Пациент";
+            line.Values = num;
+
+            series.Add(line);
+
+            cartesianChartGrapg_MSE.Series = series;
 
             
         }

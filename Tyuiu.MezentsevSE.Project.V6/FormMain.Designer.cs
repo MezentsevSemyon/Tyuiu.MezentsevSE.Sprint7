@@ -32,6 +32,8 @@ namespace Tyuiu.MezentsevSE.Project.V6
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabControlMid_MSE = new System.Windows.Forms.TabControl();
             this.tabPageMenu_MSE = new System.Windows.Forms.TabPage();
+            this.textBoxPS_MSE = new System.Windows.Forms.TextBox();
+            this.textBoxMain_MSE = new System.Windows.Forms.TextBox();
             this.tabPageInsert_MSE = new System.Windows.Forms.TabPage();
             this.groupBoxMoreInfo_MSE = new System.Windows.Forms.GroupBox();
             this.labelInfo_MSE = new System.Windows.Forms.Label();
@@ -65,6 +67,10 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.textBoxOtchestvo_MSE = new System.Windows.Forms.TextBox();
             this.textBoxDate_MSE = new System.Windows.Forms.TextBox();
             this.buttonInsert_MSE = new System.Windows.Forms.Button();
+            this.tabPageEdit_MSE = new System.Windows.Forms.TabPage();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonEdit_MSE = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewEdit_MSE = new System.Windows.Forms.DataGridView();
             this.tabPageSelect_MSE = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonSelect_MSE = new System.Windows.Forms.Button();
@@ -86,18 +92,26 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.textBoxAbout_MSE = new System.Windows.Forms.TextBox();
             this.pictureBoxAboutN2_MSE = new System.Windows.Forms.PictureBox();
             this.pictureBoxAbout_MSE = new System.Windows.Forms.PictureBox();
-            this.tabPageEdit_MSE = new System.Windows.Forms.TabPage();
-            this.dataGridViewEdit_MSE = new System.Windows.Forms.DataGridView();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButtonEdit_MSE = new System.Windows.Forms.ToolStripButton();
-            this.textBoxMain_MSE = new System.Windows.Forms.TextBox();
-            this.textBoxPS_MSE = new System.Windows.Forms.TextBox();
+            this.dataGridViewMenu_MSE = new System.Windows.Forms.DataGridView();
+            this.buttonLoadFile_MSE = new System.Windows.Forms.Button();
+            this.buttonSaveFile_MSE = new System.Windows.Forms.Button();
+            this.buttonMid_MSE = new System.Windows.Forms.Button();
+            this.buttonCount_MSE = new System.Windows.Forms.Button();
+            this.labelLoadFile_MSE = new System.Windows.Forms.Label();
+            this.labelSaveFile_MSE = new System.Windows.Forms.Label();
+            this.labelCount_MSE = new System.Windows.Forms.Label();
+            this.labelMid_MSE = new System.Windows.Forms.Label();
+            this.textBoxCount_MSE = new System.Windows.Forms.TextBox();
+            this.textBoxMid_MSE = new System.Windows.Forms.TextBox();
             this.tabControlMid_MSE.SuspendLayout();
             this.tabPageMenu_MSE.SuspendLayout();
             this.tabPageInsert_MSE.SuspendLayout();
             this.groupBoxMoreInfo_MSE.SuspendLayout();
             this.groupBoxDoctor_MSE.SuspendLayout();
             this.groupBoxPatient_MSE.SuspendLayout();
+            this.tabPageEdit_MSE.SuspendLayout();
+            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEdit_MSE)).BeginInit();
             this.tabPageSelect_MSE.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTabl_MSE)).BeginInit();
@@ -108,9 +122,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.tabINFO_MSE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAboutN2_MSE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAbout_MSE)).BeginInit();
-            this.tabPageEdit_MSE.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEdit_MSE)).BeginInit();
-            this.toolStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenu_MSE)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMid_MSE
@@ -131,6 +143,17 @@ namespace Tyuiu.MezentsevSE.Project.V6
             // 
             // tabPageMenu_MSE
             // 
+            this.tabPageMenu_MSE.Controls.Add(this.textBoxMid_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.textBoxCount_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.labelMid_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.labelCount_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.labelSaveFile_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.labelLoadFile_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.buttonCount_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.buttonMid_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.buttonSaveFile_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.buttonLoadFile_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.dataGridViewMenu_MSE);
             this.tabPageMenu_MSE.Controls.Add(this.textBoxPS_MSE);
             this.tabPageMenu_MSE.Controls.Add(this.textBoxMain_MSE);
             this.tabPageMenu_MSE.Location = new System.Drawing.Point(4, 22);
@@ -140,6 +163,25 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.tabPageMenu_MSE.TabIndex = 0;
             this.tabPageMenu_MSE.Text = "Меню";
             this.tabPageMenu_MSE.UseVisualStyleBackColor = true;
+            // 
+            // textBoxPS_MSE
+            // 
+            this.textBoxPS_MSE.Location = new System.Drawing.Point(3, 396);
+            this.textBoxPS_MSE.Name = "textBoxPS_MSE";
+            this.textBoxPS_MSE.Size = new System.Drawing.Size(568, 20);
+            this.textBoxPS_MSE.TabIndex = 1;
+            this.textBoxPS_MSE.Text = "Во вкладке \"Выборка\" поиск осуществляется по шаблону (SELECT * FROM Patients, где" +
+    " * - название колонны)";
+            // 
+            // textBoxMain_MSE
+            // 
+            this.textBoxMain_MSE.Font = new System.Drawing.Font("Impact", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBoxMain_MSE.ForeColor = System.Drawing.Color.Orange;
+            this.textBoxMain_MSE.Location = new System.Drawing.Point(204, 6);
+            this.textBoxMain_MSE.Name = "textBoxMain_MSE";
+            this.textBoxMain_MSE.Size = new System.Drawing.Size(395, 86);
+            this.textBoxMain_MSE.TabIndex = 0;
+            this.textBoxMain_MSE.Text = "ПОЛИКЛИНИКА";
             // 
             // tabPageInsert_MSE
             // 
@@ -448,6 +490,51 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.buttonInsert_MSE.UseVisualStyleBackColor = false;
             this.buttonInsert_MSE.Click += new System.EventHandler(this.buttonInsert_MSE_Click);
             // 
+            // tabPageEdit_MSE
+            // 
+            this.tabPageEdit_MSE.Controls.Add(this.toolStrip2);
+            this.tabPageEdit_MSE.Controls.Add(this.dataGridViewEdit_MSE);
+            this.tabPageEdit_MSE.Location = new System.Drawing.Point(4, 22);
+            this.tabPageEdit_MSE.Name = "tabPageEdit_MSE";
+            this.tabPageEdit_MSE.Size = new System.Drawing.Size(792, 424);
+            this.tabPageEdit_MSE.TabIndex = 7;
+            this.tabPageEdit_MSE.Text = "Редактирование";
+            this.tabPageEdit_MSE.UseVisualStyleBackColor = true;
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonEdit_MSE});
+            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.Size = new System.Drawing.Size(792, 25);
+            this.toolStrip2.TabIndex = 1;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // toolStripButtonEdit_MSE
+            // 
+            this.toolStripButtonEdit_MSE.BackColor = System.Drawing.Color.Gold;
+            this.toolStripButtonEdit_MSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonEdit_MSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit_MSE.Image")));
+            this.toolStripButtonEdit_MSE.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEdit_MSE.Name = "toolStripButtonEdit_MSE";
+            this.toolStripButtonEdit_MSE.Size = new System.Drawing.Size(65, 22);
+            this.toolStripButtonEdit_MSE.Text = "Обновить";
+            this.toolStripButtonEdit_MSE.Click += new System.EventHandler(this.toolStripButtonEdit_MSE_Click);
+            // 
+            // dataGridViewEdit_MSE
+            // 
+            this.dataGridViewEdit_MSE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEdit_MSE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewEdit_MSE.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewEdit_MSE.Name = "dataGridViewEdit_MSE";
+            this.dataGridViewEdit_MSE.Size = new System.Drawing.Size(792, 424);
+            this.dataGridViewEdit_MSE.TabIndex = 0;
+            this.dataGridViewEdit_MSE.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEdit_MSE_CellContentClick);
+            this.dataGridViewEdit_MSE.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEdit_MSE_CellValueChanged);
+            this.dataGridViewEdit_MSE.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewEdit_MSE_EditingControlShowing);
+            this.dataGridViewEdit_MSE.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewEdit_MSE_UserAddedRow);
+            // 
             // tabPageSelect_MSE
             // 
             this.tabPageSelect_MSE.Controls.Add(this.tableLayoutPanel1);
@@ -671,69 +758,103 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.pictureBoxAbout_MSE.TabIndex = 1;
             this.pictureBoxAbout_MSE.TabStop = false;
             // 
-            // tabPageEdit_MSE
+            // dataGridViewMenu_MSE
             // 
-            this.tabPageEdit_MSE.Controls.Add(this.toolStrip2);
-            this.tabPageEdit_MSE.Controls.Add(this.dataGridViewEdit_MSE);
-            this.tabPageEdit_MSE.Location = new System.Drawing.Point(4, 22);
-            this.tabPageEdit_MSE.Name = "tabPageEdit_MSE";
-            this.tabPageEdit_MSE.Size = new System.Drawing.Size(792, 424);
-            this.tabPageEdit_MSE.TabIndex = 7;
-            this.tabPageEdit_MSE.Text = "Редактирование";
-            this.tabPageEdit_MSE.UseVisualStyleBackColor = true;
+            this.dataGridViewMenu_MSE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMenu_MSE.Location = new System.Drawing.Point(312, 98);
+            this.dataGridViewMenu_MSE.Name = "dataGridViewMenu_MSE";
+            this.dataGridViewMenu_MSE.Size = new System.Drawing.Size(464, 246);
+            this.dataGridViewMenu_MSE.TabIndex = 2;
             // 
-            // dataGridViewEdit_MSE
+            // buttonLoadFile_MSE
             // 
-            this.dataGridViewEdit_MSE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEdit_MSE.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewEdit_MSE.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewEdit_MSE.Name = "dataGridViewEdit_MSE";
-            this.dataGridViewEdit_MSE.Size = new System.Drawing.Size(792, 424);
-            this.dataGridViewEdit_MSE.TabIndex = 0;
-            this.dataGridViewEdit_MSE.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEdit_MSE_CellContentClick);
-            this.dataGridViewEdit_MSE.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEdit_MSE_CellValueChanged);
-            this.dataGridViewEdit_MSE.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.dataGridViewEdit_MSE_EditingControlShowing);
-            this.dataGridViewEdit_MSE.UserAddedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dataGridViewEdit_MSE_UserAddedRow);
+            this.buttonLoadFile_MSE.BackColor = System.Drawing.Color.Gold;
+            this.buttonLoadFile_MSE.Location = new System.Drawing.Point(0, 134);
+            this.buttonLoadFile_MSE.Name = "buttonLoadFile_MSE";
+            this.buttonLoadFile_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonLoadFile_MSE.TabIndex = 3;
+            this.buttonLoadFile_MSE.Text = "Загрузить файл";
+            this.buttonLoadFile_MSE.UseVisualStyleBackColor = false;
             // 
-            // toolStrip2
+            // buttonSaveFile_MSE
             // 
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonEdit_MSE});
-            this.toolStrip2.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(792, 25);
-            this.toolStrip2.TabIndex = 1;
-            this.toolStrip2.Text = "toolStrip2";
+            this.buttonSaveFile_MSE.BackColor = System.Drawing.Color.Gold;
+            this.buttonSaveFile_MSE.Location = new System.Drawing.Point(150, 134);
+            this.buttonSaveFile_MSE.Name = "buttonSaveFile_MSE";
+            this.buttonSaveFile_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonSaveFile_MSE.TabIndex = 4;
+            this.buttonSaveFile_MSE.Text = "Сохранить файл";
+            this.buttonSaveFile_MSE.UseVisualStyleBackColor = false;
             // 
-            // toolStripButtonEdit_MSE
+            // buttonMid_MSE
             // 
-            this.toolStripButtonEdit_MSE.BackColor = System.Drawing.Color.Gold;
-            this.toolStripButtonEdit_MSE.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButtonEdit_MSE.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonEdit_MSE.Image")));
-            this.toolStripButtonEdit_MSE.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonEdit_MSE.Name = "toolStripButtonEdit_MSE";
-            this.toolStripButtonEdit_MSE.Size = new System.Drawing.Size(65, 22);
-            this.toolStripButtonEdit_MSE.Text = "Обновить";
-            this.toolStripButtonEdit_MSE.Click += new System.EventHandler(this.toolStripButtonEdit_MSE_Click);
+            this.buttonMid_MSE.BackColor = System.Drawing.Color.DarkOrange;
+            this.buttonMid_MSE.Location = new System.Drawing.Point(150, 260);
+            this.buttonMid_MSE.Name = "buttonMid_MSE";
+            this.buttonMid_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonMid_MSE.TabIndex = 5;
+            this.buttonMid_MSE.Text = "Ср.Знач";
+            this.buttonMid_MSE.UseVisualStyleBackColor = false;
             // 
-            // textBoxMain_MSE
+            // buttonCount_MSE
             // 
-            this.textBoxMain_MSE.Font = new System.Drawing.Font("Impact", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBoxMain_MSE.ForeColor = System.Drawing.Color.Orange;
-            this.textBoxMain_MSE.Location = new System.Drawing.Point(204, 6);
-            this.textBoxMain_MSE.Name = "textBoxMain_MSE";
-            this.textBoxMain_MSE.Size = new System.Drawing.Size(395, 86);
-            this.textBoxMain_MSE.TabIndex = 0;
-            this.textBoxMain_MSE.Text = "ПОЛИКЛИНИКА";
+            this.buttonCount_MSE.BackColor = System.Drawing.Color.DarkOrange;
+            this.buttonCount_MSE.Location = new System.Drawing.Point(3, 260);
+            this.buttonCount_MSE.Name = "buttonCount_MSE";
+            this.buttonCount_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonCount_MSE.TabIndex = 6;
+            this.buttonCount_MSE.Text = "Количество";
+            this.buttonCount_MSE.UseVisualStyleBackColor = false;
             // 
-            // textBoxPS_MSE
+            // labelLoadFile_MSE
             // 
-            this.textBoxPS_MSE.Location = new System.Drawing.Point(3, 396);
-            this.textBoxPS_MSE.Name = "textBoxPS_MSE";
-            this.textBoxPS_MSE.Size = new System.Drawing.Size(568, 20);
-            this.textBoxPS_MSE.TabIndex = 1;
-            this.textBoxPS_MSE.Text = "Во вкладке \"Выборка\" поиск осуществляется по шаблону (SELECT * FROM Patients, где" +
-    " * - название колонны)";
+            this.labelLoadFile_MSE.AutoSize = true;
+            this.labelLoadFile_MSE.Location = new System.Drawing.Point(24, 98);
+            this.labelLoadFile_MSE.Name = "labelLoadFile_MSE";
+            this.labelLoadFile_MSE.Size = new System.Drawing.Size(89, 13);
+            this.labelLoadFile_MSE.TabIndex = 7;
+            this.labelLoadFile_MSE.Text = "Загрузка файла";
+            // 
+            // labelSaveFile_MSE
+            // 
+            this.labelSaveFile_MSE.AutoSize = true;
+            this.labelSaveFile_MSE.Location = new System.Drawing.Point(169, 98);
+            this.labelSaveFile_MSE.Name = "labelSaveFile_MSE";
+            this.labelSaveFile_MSE.Size = new System.Drawing.Size(102, 13);
+            this.labelSaveFile_MSE.TabIndex = 8;
+            this.labelSaveFile_MSE.Text = "Сохранение файла";
+            // 
+            // labelCount_MSE
+            // 
+            this.labelCount_MSE.AutoSize = true;
+            this.labelCount_MSE.Location = new System.Drawing.Point(8, 232);
+            this.labelCount_MSE.Name = "labelCount_MSE";
+            this.labelCount_MSE.Size = new System.Drawing.Size(122, 13);
+            this.labelCount_MSE.TabIndex = 9;
+            this.labelCount_MSE.Text = "Количество пациентов";
+            // 
+            // labelMid_MSE
+            // 
+            this.labelMid_MSE.AutoSize = true;
+            this.labelMid_MSE.Location = new System.Drawing.Point(147, 232);
+            this.labelMid_MSE.Name = "labelMid_MSE";
+            this.labelMid_MSE.Size = new System.Drawing.Size(150, 13);
+            this.labelMid_MSE.TabIndex = 10;
+            this.labelMid_MSE.Text = "Средний возраст пациентов";
+            // 
+            // textBoxCount_MSE
+            // 
+            this.textBoxCount_MSE.Location = new System.Drawing.Point(8, 324);
+            this.textBoxCount_MSE.Name = "textBoxCount_MSE";
+            this.textBoxCount_MSE.Size = new System.Drawing.Size(136, 20);
+            this.textBoxCount_MSE.TabIndex = 11;
+            // 
+            // textBoxMid_MSE
+            // 
+            this.textBoxMid_MSE.Location = new System.Drawing.Point(150, 324);
+            this.textBoxMid_MSE.Name = "textBoxMid_MSE";
+            this.textBoxMid_MSE.Size = new System.Drawing.Size(141, 20);
+            this.textBoxMid_MSE.TabIndex = 12;
             // 
             // FormMain
             // 
@@ -755,6 +876,11 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.groupBoxDoctor_MSE.PerformLayout();
             this.groupBoxPatient_MSE.ResumeLayout(false);
             this.groupBoxPatient_MSE.PerformLayout();
+            this.tabPageEdit_MSE.ResumeLayout(false);
+            this.tabPageEdit_MSE.PerformLayout();
+            this.toolStrip2.ResumeLayout(false);
+            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEdit_MSE)).EndInit();
             this.tabPageSelect_MSE.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
@@ -770,11 +896,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.tabINFO_MSE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAboutN2_MSE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAbout_MSE)).EndInit();
-            this.tabPageEdit_MSE.ResumeLayout(false);
-            this.tabPageEdit_MSE.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEdit_MSE)).EndInit();
-            this.toolStrip2.ResumeLayout(false);
-            this.toolStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenu_MSE)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -843,6 +965,17 @@ namespace Tyuiu.MezentsevSE.Project.V6
         private System.Windows.Forms.ToolStripButton toolStripButtonEdit_MSE;
         private System.Windows.Forms.TextBox textBoxPS_MSE;
         private System.Windows.Forms.TextBox textBoxMain_MSE;
+        private System.Windows.Forms.Button buttonCount_MSE;
+        private System.Windows.Forms.Button buttonMid_MSE;
+        private System.Windows.Forms.Button buttonSaveFile_MSE;
+        private System.Windows.Forms.Button buttonLoadFile_MSE;
+        private System.Windows.Forms.DataGridView dataGridViewMenu_MSE;
+        private System.Windows.Forms.Label labelMid_MSE;
+        private System.Windows.Forms.Label labelCount_MSE;
+        private System.Windows.Forms.Label labelSaveFile_MSE;
+        private System.Windows.Forms.Label labelLoadFile_MSE;
+        private System.Windows.Forms.TextBox textBoxMid_MSE;
+        private System.Windows.Forms.TextBox textBoxCount_MSE;
     }
 }
 
