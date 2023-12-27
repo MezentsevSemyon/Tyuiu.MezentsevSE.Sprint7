@@ -1,0 +1,1 @@
+﻿SELECT * FROM Patients INTO OUTFILE 

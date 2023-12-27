@@ -32,6 +32,13 @@ namespace Tyuiu.MezentsevSE.Project.V6
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.tabControlMid_MSE = new System.Windows.Forms.TabControl();
             this.tabPageMenu_MSE = new System.Windows.Forms.TabPage();
+            this.buttonMax_MSE = new System.Windows.Forms.Button();
+            this.buttonMin_MSE = new System.Windows.Forms.Button();
+            this.buttonCount_MSE = new System.Windows.Forms.Button();
+            this.buttonMid_MSE = new System.Windows.Forms.Button();
+            this.buttonSaveFile_MSE = new System.Windows.Forms.Button();
+            this.buttonLoadFile_MSE = new System.Windows.Forms.Button();
+            this.dataGridViewMenu_MSE = new System.Windows.Forms.DataGridView();
             this.textBoxPS_MSE = new System.Windows.Forms.TextBox();
             this.textBoxMain_MSE = new System.Windows.Forms.TextBox();
             this.tabPageInsert_MSE = new System.Windows.Forms.TabPage();
@@ -92,19 +99,9 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.textBoxAbout_MSE = new System.Windows.Forms.TextBox();
             this.pictureBoxAboutN2_MSE = new System.Windows.Forms.PictureBox();
             this.pictureBoxAbout_MSE = new System.Windows.Forms.PictureBox();
-            this.dataGridViewMenu_MSE = new System.Windows.Forms.DataGridView();
-            this.buttonLoadFile_MSE = new System.Windows.Forms.Button();
-            this.buttonSaveFile_MSE = new System.Windows.Forms.Button();
-            this.buttonMid_MSE = new System.Windows.Forms.Button();
-            this.buttonCount_MSE = new System.Windows.Forms.Button();
-            this.labelLoadFile_MSE = new System.Windows.Forms.Label();
-            this.labelSaveFile_MSE = new System.Windows.Forms.Label();
-            this.labelCount_MSE = new System.Windows.Forms.Label();
-            this.labelMid_MSE = new System.Windows.Forms.Label();
-            this.textBoxCount_MSE = new System.Windows.Forms.TextBox();
-            this.textBoxMid_MSE = new System.Windows.Forms.TextBox();
             this.tabControlMid_MSE.SuspendLayout();
             this.tabPageMenu_MSE.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenu_MSE)).BeginInit();
             this.tabPageInsert_MSE.SuspendLayout();
             this.groupBoxMoreInfo_MSE.SuspendLayout();
             this.groupBoxDoctor_MSE.SuspendLayout();
@@ -122,7 +119,6 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.tabINFO_MSE.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAboutN2_MSE)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAbout_MSE)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenu_MSE)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlMid_MSE
@@ -143,12 +139,8 @@ namespace Tyuiu.MezentsevSE.Project.V6
             // 
             // tabPageMenu_MSE
             // 
-            this.tabPageMenu_MSE.Controls.Add(this.textBoxMid_MSE);
-            this.tabPageMenu_MSE.Controls.Add(this.textBoxCount_MSE);
-            this.tabPageMenu_MSE.Controls.Add(this.labelMid_MSE);
-            this.tabPageMenu_MSE.Controls.Add(this.labelCount_MSE);
-            this.tabPageMenu_MSE.Controls.Add(this.labelSaveFile_MSE);
-            this.tabPageMenu_MSE.Controls.Add(this.labelLoadFile_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.buttonMax_MSE);
+            this.tabPageMenu_MSE.Controls.Add(this.buttonMin_MSE);
             this.tabPageMenu_MSE.Controls.Add(this.buttonCount_MSE);
             this.tabPageMenu_MSE.Controls.Add(this.buttonMid_MSE);
             this.tabPageMenu_MSE.Controls.Add(this.buttonSaveFile_MSE);
@@ -163,6 +155,81 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.tabPageMenu_MSE.TabIndex = 0;
             this.tabPageMenu_MSE.Text = "Меню";
             this.tabPageMenu_MSE.UseVisualStyleBackColor = true;
+            // 
+            // buttonMax_MSE
+            // 
+            this.buttonMax_MSE.BackColor = System.Drawing.Color.Orange;
+            this.buttonMax_MSE.Location = new System.Drawing.Point(150, 250);
+            this.buttonMax_MSE.Name = "buttonMax_MSE";
+            this.buttonMax_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonMax_MSE.TabIndex = 14;
+            this.buttonMax_MSE.Text = "Максимальный возраст";
+            this.buttonMax_MSE.UseVisualStyleBackColor = false;
+            this.buttonMax_MSE.Click += new System.EventHandler(this.buttonMax_MSE_Click);
+            // 
+            // buttonMin_MSE
+            // 
+            this.buttonMin_MSE.BackColor = System.Drawing.Color.Orange;
+            this.buttonMin_MSE.Location = new System.Drawing.Point(6, 250);
+            this.buttonMin_MSE.Name = "buttonMin_MSE";
+            this.buttonMin_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonMin_MSE.TabIndex = 13;
+            this.buttonMin_MSE.Text = "Минимальный возраст";
+            this.buttonMin_MSE.UseVisualStyleBackColor = false;
+            this.buttonMin_MSE.Click += new System.EventHandler(this.buttonMin_MSE_Click);
+            // 
+            // buttonCount_MSE
+            // 
+            this.buttonCount_MSE.BackColor = System.Drawing.Color.DarkOrange;
+            this.buttonCount_MSE.Location = new System.Drawing.Point(6, 192);
+            this.buttonCount_MSE.Name = "buttonCount_MSE";
+            this.buttonCount_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonCount_MSE.TabIndex = 6;
+            this.buttonCount_MSE.Text = "Количество пациентов";
+            this.buttonCount_MSE.UseVisualStyleBackColor = false;
+            this.buttonCount_MSE.Click += new System.EventHandler(this.buttonCount_MSE_Click);
+            // 
+            // buttonMid_MSE
+            // 
+            this.buttonMid_MSE.BackColor = System.Drawing.Color.DarkOrange;
+            this.buttonMid_MSE.Location = new System.Drawing.Point(150, 192);
+            this.buttonMid_MSE.Name = "buttonMid_MSE";
+            this.buttonMid_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonMid_MSE.TabIndex = 5;
+            this.buttonMid_MSE.Text = "Средний возраст";
+            this.buttonMid_MSE.UseVisualStyleBackColor = false;
+            this.buttonMid_MSE.Click += new System.EventHandler(this.buttonMid_MSE_Click);
+            // 
+            // buttonSaveFile_MSE
+            // 
+            this.buttonSaveFile_MSE.BackColor = System.Drawing.Color.Gold;
+            this.buttonSaveFile_MSE.Location = new System.Drawing.Point(150, 134);
+            this.buttonSaveFile_MSE.Name = "buttonSaveFile_MSE";
+            this.buttonSaveFile_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonSaveFile_MSE.TabIndex = 4;
+            this.buttonSaveFile_MSE.Text = "Сохранить файл";
+            this.buttonSaveFile_MSE.UseVisualStyleBackColor = false;
+            this.buttonSaveFile_MSE.Click += new System.EventHandler(this.buttonSaveFile_MSE_Click);
+            // 
+            // buttonLoadFile_MSE
+            // 
+            this.buttonLoadFile_MSE.BackColor = System.Drawing.Color.Gold;
+            this.buttonLoadFile_MSE.Location = new System.Drawing.Point(6, 134);
+            this.buttonLoadFile_MSE.Name = "buttonLoadFile_MSE";
+            this.buttonLoadFile_MSE.Size = new System.Drawing.Size(141, 52);
+            this.buttonLoadFile_MSE.TabIndex = 3;
+            this.buttonLoadFile_MSE.Text = "Загрузить файл";
+            this.buttonLoadFile_MSE.UseVisualStyleBackColor = false;
+            this.buttonLoadFile_MSE.Click += new System.EventHandler(this.buttonLoadFile_MSE_Click);
+            // 
+            // dataGridViewMenu_MSE
+            // 
+            this.dataGridViewMenu_MSE.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewMenu_MSE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMenu_MSE.Location = new System.Drawing.Point(312, 98);
+            this.dataGridViewMenu_MSE.Name = "dataGridViewMenu_MSE";
+            this.dataGridViewMenu_MSE.Size = new System.Drawing.Size(464, 246);
+            this.dataGridViewMenu_MSE.TabIndex = 2;
             // 
             // textBoxPS_MSE
             // 
@@ -404,9 +471,9 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.labelDate_MSE.AutoSize = true;
             this.labelDate_MSE.Location = new System.Drawing.Point(6, 220);
             this.labelDate_MSE.Name = "labelDate_MSE";
-            this.labelDate_MSE.Size = new System.Drawing.Size(221, 13);
+            this.labelDate_MSE.Size = new System.Drawing.Size(99, 13);
             this.labelDate_MSE.TabIndex = 19;
-            this.labelDate_MSE.Text = "Дата рождения пациента(месяц.день.год)";
+            this.labelDate_MSE.Text = "Возраст пациента";
             // 
             // labelOtch_MSE
             // 
@@ -758,104 +825,6 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.pictureBoxAbout_MSE.TabIndex = 1;
             this.pictureBoxAbout_MSE.TabStop = false;
             // 
-            // dataGridViewMenu_MSE
-            // 
-            this.dataGridViewMenu_MSE.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewMenu_MSE.Location = new System.Drawing.Point(312, 98);
-            this.dataGridViewMenu_MSE.Name = "dataGridViewMenu_MSE";
-            this.dataGridViewMenu_MSE.Size = new System.Drawing.Size(464, 246);
-            this.dataGridViewMenu_MSE.TabIndex = 2;
-            // 
-            // buttonLoadFile_MSE
-            // 
-            this.buttonLoadFile_MSE.BackColor = System.Drawing.Color.Gold;
-            this.buttonLoadFile_MSE.Location = new System.Drawing.Point(0, 134);
-            this.buttonLoadFile_MSE.Name = "buttonLoadFile_MSE";
-            this.buttonLoadFile_MSE.Size = new System.Drawing.Size(141, 52);
-            this.buttonLoadFile_MSE.TabIndex = 3;
-            this.buttonLoadFile_MSE.Text = "Загрузить файл";
-            this.buttonLoadFile_MSE.UseVisualStyleBackColor = false;
-            // 
-            // buttonSaveFile_MSE
-            // 
-            this.buttonSaveFile_MSE.BackColor = System.Drawing.Color.Gold;
-            this.buttonSaveFile_MSE.Location = new System.Drawing.Point(150, 134);
-            this.buttonSaveFile_MSE.Name = "buttonSaveFile_MSE";
-            this.buttonSaveFile_MSE.Size = new System.Drawing.Size(141, 52);
-            this.buttonSaveFile_MSE.TabIndex = 4;
-            this.buttonSaveFile_MSE.Text = "Сохранить файл";
-            this.buttonSaveFile_MSE.UseVisualStyleBackColor = false;
-            // 
-            // buttonMid_MSE
-            // 
-            this.buttonMid_MSE.BackColor = System.Drawing.Color.DarkOrange;
-            this.buttonMid_MSE.Location = new System.Drawing.Point(150, 260);
-            this.buttonMid_MSE.Name = "buttonMid_MSE";
-            this.buttonMid_MSE.Size = new System.Drawing.Size(141, 52);
-            this.buttonMid_MSE.TabIndex = 5;
-            this.buttonMid_MSE.Text = "Ср.Знач";
-            this.buttonMid_MSE.UseVisualStyleBackColor = false;
-            // 
-            // buttonCount_MSE
-            // 
-            this.buttonCount_MSE.BackColor = System.Drawing.Color.DarkOrange;
-            this.buttonCount_MSE.Location = new System.Drawing.Point(3, 260);
-            this.buttonCount_MSE.Name = "buttonCount_MSE";
-            this.buttonCount_MSE.Size = new System.Drawing.Size(141, 52);
-            this.buttonCount_MSE.TabIndex = 6;
-            this.buttonCount_MSE.Text = "Количество";
-            this.buttonCount_MSE.UseVisualStyleBackColor = false;
-            // 
-            // labelLoadFile_MSE
-            // 
-            this.labelLoadFile_MSE.AutoSize = true;
-            this.labelLoadFile_MSE.Location = new System.Drawing.Point(24, 98);
-            this.labelLoadFile_MSE.Name = "labelLoadFile_MSE";
-            this.labelLoadFile_MSE.Size = new System.Drawing.Size(89, 13);
-            this.labelLoadFile_MSE.TabIndex = 7;
-            this.labelLoadFile_MSE.Text = "Загрузка файла";
-            // 
-            // labelSaveFile_MSE
-            // 
-            this.labelSaveFile_MSE.AutoSize = true;
-            this.labelSaveFile_MSE.Location = new System.Drawing.Point(169, 98);
-            this.labelSaveFile_MSE.Name = "labelSaveFile_MSE";
-            this.labelSaveFile_MSE.Size = new System.Drawing.Size(102, 13);
-            this.labelSaveFile_MSE.TabIndex = 8;
-            this.labelSaveFile_MSE.Text = "Сохранение файла";
-            // 
-            // labelCount_MSE
-            // 
-            this.labelCount_MSE.AutoSize = true;
-            this.labelCount_MSE.Location = new System.Drawing.Point(8, 232);
-            this.labelCount_MSE.Name = "labelCount_MSE";
-            this.labelCount_MSE.Size = new System.Drawing.Size(122, 13);
-            this.labelCount_MSE.TabIndex = 9;
-            this.labelCount_MSE.Text = "Количество пациентов";
-            // 
-            // labelMid_MSE
-            // 
-            this.labelMid_MSE.AutoSize = true;
-            this.labelMid_MSE.Location = new System.Drawing.Point(147, 232);
-            this.labelMid_MSE.Name = "labelMid_MSE";
-            this.labelMid_MSE.Size = new System.Drawing.Size(150, 13);
-            this.labelMid_MSE.TabIndex = 10;
-            this.labelMid_MSE.Text = "Средний возраст пациентов";
-            // 
-            // textBoxCount_MSE
-            // 
-            this.textBoxCount_MSE.Location = new System.Drawing.Point(8, 324);
-            this.textBoxCount_MSE.Name = "textBoxCount_MSE";
-            this.textBoxCount_MSE.Size = new System.Drawing.Size(136, 20);
-            this.textBoxCount_MSE.TabIndex = 11;
-            // 
-            // textBoxMid_MSE
-            // 
-            this.textBoxMid_MSE.Location = new System.Drawing.Point(150, 324);
-            this.textBoxMid_MSE.Name = "textBoxMid_MSE";
-            this.textBoxMid_MSE.Size = new System.Drawing.Size(141, 20);
-            this.textBoxMid_MSE.TabIndex = 12;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -869,6 +838,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.tabControlMid_MSE.ResumeLayout(false);
             this.tabPageMenu_MSE.ResumeLayout(false);
             this.tabPageMenu_MSE.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenu_MSE)).EndInit();
             this.tabPageInsert_MSE.ResumeLayout(false);
             this.groupBoxMoreInfo_MSE.ResumeLayout(false);
             this.groupBoxMoreInfo_MSE.PerformLayout();
@@ -896,7 +866,6 @@ namespace Tyuiu.MezentsevSE.Project.V6
             this.tabINFO_MSE.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAboutN2_MSE)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAbout_MSE)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMenu_MSE)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -970,12 +939,8 @@ namespace Tyuiu.MezentsevSE.Project.V6
         private System.Windows.Forms.Button buttonSaveFile_MSE;
         private System.Windows.Forms.Button buttonLoadFile_MSE;
         private System.Windows.Forms.DataGridView dataGridViewMenu_MSE;
-        private System.Windows.Forms.Label labelMid_MSE;
-        private System.Windows.Forms.Label labelCount_MSE;
-        private System.Windows.Forms.Label labelSaveFile_MSE;
-        private System.Windows.Forms.Label labelLoadFile_MSE;
-        private System.Windows.Forms.TextBox textBoxMid_MSE;
-        private System.Windows.Forms.TextBox textBoxCount_MSE;
+        private System.Windows.Forms.Button buttonMax_MSE;
+        private System.Windows.Forms.Button buttonMin_MSE;
     }
 }
 

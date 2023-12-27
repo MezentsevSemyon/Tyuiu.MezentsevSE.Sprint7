@@ -12,6 +12,13 @@ using System.Data;
 using System.Data.SqlClient;
 using LiveCharts;
 using LiveCharts.Wpf;
+using System.IO;
+using Tyuiu.MezentsevSE.Project.V6.Lib;
+using ExcelDataReader;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
+using System.Data.OleDb;
+using System.Text.RegularExpressions;
 
 namespace Tyuiu.MezentsevSE.Project.V6
 {
@@ -26,6 +33,13 @@ namespace Tyuiu.MezentsevSE.Project.V6
         private SqlCommandBuilder sqlBuilder = null;
 
         private DataTable table = null;
+
+        private string FileName = string.Empty;
+
+        private DataTableCollection tableCollection = null;
+
+        
+        
 
         private bool newRowAdding = false;
         public FormMain()
@@ -131,7 +145,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
         private void buttonInsert_MSE_Click(object sender, EventArgs e)
         {
-            SqlCommand command = new SqlCommand("INSERT INTO [Patients] (Num,Surname,Name,Otchestvo,Data_Rozhdeniya,SurnameD,NameD,OtchestvoD,Dolzhnost,Ill,Heal,Time,Dispanser,Info) VALUES (@Num,@Surname,@Name,@Otchestvo,@Data_Rozhdeniya,@SurnameD,@NameD,@OtchestvoD,@Dolzhnost,@Ill,@Heal,@Time,@Dispanser,@Info)", sqlConnection);
+            SqlCommand command = new SqlCommand("INSERT INTO [Patients] (Num,Surname,Name,Otchestvo,Age,SurnameD,NameD,OtchestvoD,Dolzhnost,Ill,Heal,Time,Dispanser,Info) VALUES (@Num,@Surname,@Name,@Otchestvo,@Data_Rozhdeniya,@SurnameD,@NameD,@OtchestvoD,@Dolzhnost,@Ill,@Heal,@Time,@Dispanser,@Info)", sqlConnection);
 
             DateTime date = DateTime.Parse(textBoxDate_MSE.Text);
 
@@ -139,7 +153,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
             command.Parameters.AddWithValue("Surname", textBoxSurname_MSE.Text);
             command.Parameters.AddWithValue("Name", textBoxName_MSE.Text);
             command.Parameters.AddWithValue("Otchestvo", textBoxOtchestvo_MSE.Text);
-            command.Parameters.AddWithValue("Data_Rozhdeniya", $"{date.Month}.{date.Day}.{date.Year}");
+            command.Parameters.AddWithValue("Age", textBoxDate_MSE.Text);
             command.Parameters.AddWithValue("SurnameD", textBoxSurnameD_MSE.Text);
             command.Parameters.AddWithValue("NameD", textBoxNameD_MSE.Text);
             command.Parameters.AddWithValue("OtchestvoD", textBoxOtchestvoD_MSE.Text);
@@ -227,7 +241,13 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
         private void toolStripButtonGraph_MSE_Click(object sender, EventArgs e)
         {
+            if (dataSet.Tables["Patients"] != null)
+                dataSet.Tables["Patients"].Clear();
+
+
             dataAdapter.Fill(dataSet, "Patients");
+
+            table = dataSet.Tables["Patients"];
 
             SeriesCollection series = new SeriesCollection();
 
@@ -237,9 +257,10 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
             foreach (DataRow row in table.Rows)
             {
-                num.Add(Convert.ToInt32(row["Name"]));
+                num.Add(Convert.ToInt32(row["Age"]));
 
-                birthdate.Add(Convert.ToDateTime(row["Data_Rozhdeniya"]).ToShortDateString());
+                birthdate.Add(Convert.ToString(row["Num"]));
+
 
             }
 
@@ -247,13 +268,13 @@ namespace Tyuiu.MezentsevSE.Project.V6
 
             cartesianChartGrapg_MSE.AxisX.Add(new Axis()
             {
-                Title = "Дата",
+                Title = "Пациент",
                 Labels = birthdate
 
 
             });
             LineSeries line = new LineSeries();
-            line.Title = "Пациент";
+            line.Title = "Возраст";
             line.Values = num;
 
             series.Add(line);
@@ -300,7 +321,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
                         row["Surname"] = dataGridViewEdit_MSE.Rows[rowIndex].Cells["Surname"].Value;
                         row["Name"] = dataGridViewEdit_MSE.Rows[rowIndex].Cells["Name"].Value;
                         row["Otchestvo"] = dataGridViewEdit_MSE.Rows[rowIndex].Cells["Otchestvo"].Value;
-                        row["Data_Rozhdeniya"] = dataGridViewEdit_MSE.Rows[rowIndex].Cells["Data_Rozhdeniya"].Value;
+                        row["Age"] = dataGridViewEdit_MSE.Rows[rowIndex].Cells["Age"].Value;
                         row["SurnameD"] = dataGridViewEdit_MSE.Rows[rowIndex].Cells["SurnameD"].Value;
                         row["NameD"] = dataGridViewEdit_MSE.Rows[rowIndex].Cells["NameD"].Value;
                         row["OtchestvoD"] = dataGridViewEdit_MSE.Rows[rowIndex].Cells["OtchestvoD"].Value;
@@ -332,7 +353,7 @@ namespace Tyuiu.MezentsevSE.Project.V6
                         dataSet.Tables["Patients"].Rows[r]["Surname"] = dataGridViewEdit_MSE.Rows[r].Cells["Surname"].Value;
                         dataSet.Tables["Patients"].Rows[r]["Name"] = dataGridViewEdit_MSE.Rows[r].Cells["Name"].Value;
                         dataSet.Tables["Patients"].Rows[r]["Otchestvo"] = dataGridViewEdit_MSE.Rows[r].Cells["Otchestvo"].Value;
-                        dataSet.Tables["Patients"].Rows[r]["Data_Rozhdeniya"] = dataGridViewEdit_MSE.Rows[r].Cells["Data_Rozhdeniya"].Value;
+                        dataSet.Tables["Patients"].Rows[r]["Age"] = dataGridViewEdit_MSE.Rows[r].Cells["Age"].Value;
                         dataSet.Tables["Patients"].Rows[r]["SurnameD"] = dataGridViewEdit_MSE.Rows[r].Cells["SurnameD"].Value;
                         dataSet.Tables["Patients"].Rows[r]["NameD"] = dataGridViewEdit_MSE.Rows[r].Cells["NameD"].Value;
                       
@@ -437,6 +458,96 @@ namespace Tyuiu.MezentsevSE.Project.V6
             {
                 e.Handled = true;
             }
+        }
+
+        private void buttonLoadFile_MSE_Click(object sender, EventArgs e)
+        {
+            String name = "Items";
+            String constr = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" +
+                            "C:\\Sample.xlsx" +
+                            ";Extended Properties='Excel 12.0 XML;HDR=YES;';";
+
+            OleDbConnection con = new OleDbConnection(constr);
+            OleDbCommand oconn = new OleDbCommand("Select * From [" + name + "$]", con);
+            con.Open();
+
+            OleDbDataAdapter sda = new OleDbDataAdapter(oconn);
+            DataTable data = new DataTable();
+            sda.Fill(data);
+            dataGridViewMenu_MSE.DataSource = data;
+            
+
+
+        }
+
+        private void buttonSaveFile_MSE_Click(object sender, EventArgs e)
+        {
+
+            Excel.Application Excel = new Excel.Application();
+
+            Excel.Workbooks.Add();
+            Excel.Worksheet w = (Excel.Worksheet)Excel.ActiveSheet;
+
+            int i, j;
+            for(i = 0; i <= dataGridViewMenu_MSE.RowCount -2; i++)
+            {
+                for(j=0; j<= dataGridViewMenu_MSE.ColumnCount - 1; j++)
+                {
+                    w.Cells[i+1, j+1] = dataGridViewMenu_MSE[j,i].Value.ToString();
+                }
+            }
+
+            Excel.Visible = true;
+                
+                
+            
+            
+            
+
+            
+        }
+
+        private void buttonCount_MSE_Click(object sender, EventArgs e)
+        {
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT COUNT(Age) FROM Patients", sqlConnection);
+
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+
+            dataGridViewMenu_MSE.DataSource = dataSet.Tables[0];
+
+        }
+
+        private void buttonMid_MSE_Click(object sender, EventArgs e)
+        {
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT AVG(Age) FROM Patients", sqlConnection);
+
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+
+            dataGridViewMenu_MSE.DataSource = dataSet.Tables[0];
+        }
+
+        private void buttonMax_MSE_Click(object sender, EventArgs e)
+        {
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT MAX(Age) FROM Patients", sqlConnection);
+
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+
+            dataGridViewMenu_MSE.DataSource = dataSet.Tables[0];
+        }
+
+        private void buttonMin_MSE_Click(object sender, EventArgs e)
+        {
+            SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT MIN(Age) FROM Patients", sqlConnection);
+
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+
+            dataGridViewMenu_MSE.DataSource = dataSet.Tables[0];
+
+
         }
     }
 }

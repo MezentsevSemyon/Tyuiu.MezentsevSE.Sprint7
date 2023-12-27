@@ -1,0 +1,1 @@
+﻿SELECT Patients INTO OUTFILE '/OutPutFile.csv'
